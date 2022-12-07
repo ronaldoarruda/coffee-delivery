@@ -1,6 +1,5 @@
 import { HeaderActions, HeaderContainer } from './style'
-import { FaShoppingCart } from 'react-icons/fa'
-import { ImLocation } from 'react-icons/im'
+import { ShoppingCart, MapPin } from 'phosphor-react'
 import { useTheme } from 'styled-components'
 
 export function Header() {
@@ -11,10 +10,11 @@ export function Header() {
       <img src="logo-coffee-delivery.svg" alt="" />
       <HeaderActions>
         <h3>
-          <ImLocation size={22} color={theme.purple} /> Porto Alegre, RS
+          <MapPin size={22} color={theme.purple} weight="fill" /> Porto Alegre,
+          RS
         </h3>
         <button>
-          <FaShoppingCart size={22} color={theme['yellow-dark']} />
+          <ShoppingCart size={22} color={theme['yellow-dark']} weight="fill" />
         </button>
       </HeaderActions>
     </HeaderContainer>

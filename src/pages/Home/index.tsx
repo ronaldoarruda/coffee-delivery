@@ -1,6 +1,6 @@
 import { Header } from '../../components/header'
 import { Hero } from './components/Hero'
-import { OurCoffes } from './components/OurCoffees'
+import { CoffeeCard } from './components/CoffeeCard'
 import { HomeContainer } from './style'
 
 export function Home() {
@@ -8,7 +8,7 @@ export function Home() {
     <HomeContainer>
       <Header />
       <Hero />
-      <OurCoffes />
+      <CoffeeCard />
     </HomeContainer>
   )
 }
