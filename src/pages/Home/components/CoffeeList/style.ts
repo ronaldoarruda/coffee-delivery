@@ -1,19 +1,24 @@
 import styled from 'styled-components'
 
-export const CoffeeCardContainer = styled.main`
+export const CoffeeListContainer = styled.main`
   display: flex;
   flex-direction: column;
 
   padding: 32px 160px;
   gap: 54px;
+`
+export const TitleCoffee = styled.h2`
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  font-size: 32px;
+  color: ${(props) => props.theme['base-subtitle']};
+  line-height: 130%;
+`
 
-  h1 {
-    font-family: 'Baloo 2', cursive;
-    font-weight: 800;
-    font-size: 32px;
-    color: ${(props) => props.theme['base-subtitle']};
-    line-height: 130%;
-  }
+export const CoffeeCard = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
 `
 
 export const Card = styled.section`
