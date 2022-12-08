@@ -105,7 +105,7 @@ export function CoffeeList() {
     {
       id: 11,
       name: 'Cubano',
-      type: 'Alcoólico',
+      type: 'ALCOÓLICO',
       img: 'cubano.png',
       details:
         'Drink gelado de café expresso com rum, creme de leite e hortelã',
@@ -114,7 +114,7 @@ export function CoffeeList() {
     {
       id: 12,
       name: 'Havaiano',
-      type: 'Especial',
+      type: 'ESPECIAL',
       img: 'havaiano.png',
       details: 'Bebida adocicada preparada com café e leite de coco',
       valor: 9.99,
@@ -122,7 +122,7 @@ export function CoffeeList() {
     {
       id: 13,
       name: 'Árabe',
-      type: 'Especial',
+      type: 'ESPECIAL',
       img: 'arabe.png',
       details: 'Bebida preparada com grãos de café árabe e especiarias',
       valor: 9.99,
@@ -130,7 +130,7 @@ export function CoffeeList() {
     {
       id: 14,
       name: 'Irlandês',
-      type: 'Alcoólico',
+      type: 'ALCOÓLICO',
       img: 'irlandes.png',
       details: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
       valor: 9.99,
