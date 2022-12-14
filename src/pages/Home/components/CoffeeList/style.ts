@@ -151,6 +151,8 @@ export const ButtonCart = styled.button`
   height: 38px;
   border: none;
   border-radius: 6px;
+
+  cursor: pointer;
 `
 export const ActionButton = styled.button`
   display: flex;
