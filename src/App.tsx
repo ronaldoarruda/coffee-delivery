@@ -1,11 +1,14 @@
 import { ThemeProvider } from 'styled-components'
 import React, { createContext, useReducer } from 'react'
-import { Home } from './pages/Home'
+
 import { GlobalStyle } from './styles/global'
 import { defaultTheme } from './styles/themes/default'
 import { produce } from 'immer'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Home } from './pages/Home'
+import { Request } from './pages/Request'
 
-interface ProductsType {
+export interface ProductsType {
   id: number
   name: string
   type: string
@@ -35,7 +38,7 @@ interface CoffeeContextType {
 export const CoffeeContext = createContext({} as CoffeeContextType)
 
 export type CoffeeActionType = {
-  type: 'INCREMENT' | 'DECREMENT'
+  type: 'INCREMENT' | 'DECREMENT' | 'PUTINCART'
   payload: any
 }
 
@@ -59,7 +62,14 @@ export function CoffeeReducer(
           return product.id === action.payload.id
         })
         const coffeeActivated = draft.products[coffeeActivatedIndex]
-        coffeeActivated.amount--
+        if (coffeeActivated.amount > 1) {
+          coffeeActivated.amount--
+        }
+      })
+    }
+    case 'PUTINCART': {
+      return produce(state, (draft) => {
+        draft.cart.products.push(action.payload.coffee)
       })
     }
     default:
@@ -67,7 +77,15 @@ export function CoffeeReducer(
   }
 }
 
-function App() {
+const router = createBrowserRouter([
+  { path: '/', element: <Home /> },
+  {
+    path: '/request',
+    element: <Request />,
+  },
+])
+
+export function App() {
   const coffeeInitalValue = {
     products: [
       {
@@ -215,7 +233,7 @@ function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CoffeeContext.Provider value={{ coffee, dispatch }}>
-        <Home />
+        <RouterProvider router={router} />
         <GlobalStyle />
       </CoffeeContext.Provider>
     </ThemeProvider>

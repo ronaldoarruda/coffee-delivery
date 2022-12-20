@@ -16,7 +16,7 @@ import {
 import { Plus, Minus, ShoppingCart } from 'phosphor-react'
 import { useTheme } from 'styled-components'
 import { useContext } from 'react'
-import { CoffeeContext } from '../../../../App'
+import { CoffeeContext, ProductsType } from '../../../../App'
 
 export function CoffeeList() {
   const theme = useTheme()
@@ -34,6 +34,13 @@ export function CoffeeList() {
     dispatch({
       type: 'DECREMENT',
       payload: { id },
+    })
+  }
+
+  function putInCart(coffee: ProductsType) {
+    dispatch({
+      type: 'PUTINCART',
+      payload: { coffee },
     })
   }
 
@@ -65,7 +72,7 @@ export function CoffeeList() {
                       <Plus size={14} color={theme.purple} />
                     </ActionButton>
                   </SoSoButton>
-                  <ButtonCart>
+                  <ButtonCart onClick={() => putInCart(coffee)}>
                     <ShoppingCart
                       weight="fill"
                       color={theme['base-card']}
